@@ -160,10 +160,10 @@
     echo -e "$GREEN Done...$COL_RESET"
 
     
-    # Installing Installing php7.4
+    # Installing Installing php7.2
     echo
     echo
-    echo -e "$CYAN => Installing php7.4 : $COL_RESET"
+    echo -e "$CYAN => Installing php7.2 : $COL_RESET"
     echo
     sleep 3
     
@@ -941,7 +941,7 @@
     # Make config file
     echo '
     <?php
-    ini_set('"'"'date.timezone'"'"', '"'"'CET'"'"');
+    ini_set('"'"'date.timezone'"'"', '"'"'UTC'"'"');
     define('"'"'YAAMP_LOGS'"'"', '"'"'/var/log/yiimp'"'"');
     define('"'"'YAAMP_HTDOCS'"'"', '"'"'/var/web'"'"');
         
@@ -957,14 +957,14 @@
     
     define('"'"'YAAMP_LIMIT_ESTIMATE'"'"', false);
     
-    define('"'"'YAAMP_FEES_SOLO'"'"', 0.5);
+    define('"'"'YAAMP_FEES_SOLO'"'"', 0.75);
     
     define('"'"'YAAMP_FEES_MINING'"'"', 0.5);
     define('"'"'YAAMP_FEES_EXCHANGE'"'"', 2);
     define('"'"'YAAMP_FEES_RENTING'"'"', 2);
     define('"'"'YAAMP_TXFEE_RENTING_WD'"'"', 0.002);
     
-    define('"'"'YAAMP_PAYMENTS_FREQ'"'"', 2*60*60);
+    define('"'"'YAAMP_PAYMENTS_FREQ'"'"', 1*60*60);
     define('"'"'YAAMP_PAYMENTS_MINI'"'"', 0.001);
     
     define('"'"'YAAMP_ALLOW_EXCHANGE'"'"', false);
@@ -978,7 +978,7 @@
     
     define('"'"'YAAMP_SITE_URL'"'"', '"'"''"${server_name}"''"'"');
     define('"'"'YAAMP_STRATUM_URL'"'"', YAAMP_SITE_URL); // change if your stratum server is on a different host
-    define('"'"'YAAMP_SITE_NAME'"'"', '"'"'YIIMP'"'"');
+    define('"'"'YAAMP_SITE_NAME'"'"', '"'"'duckiePool'"'"');
     define('"'"'YAAMP_ADMIN_EMAIL'"'"', '"'"''"${EMAIL}"''"'"');
     define('"'"'YAAMP_ADMIN_IP'"'"', '"'"''"${Public}"''"'"'); // samples: "80.236.118.26,90.234.221.11" or "10.0.0.1/8"
     
@@ -986,7 +986,7 @@
     define('"'"'YAAMP_CREATE_NEW_COINS'"'"', false);
     define('"'"'YAAMP_NOTIFY_NEW_COINS'"'"', false);
     
-    define('"'"'YAAMP_DEFAULT_ALGO'"'"', '"'"'all'"'"');
+    define('"'"'YAAMP_DEFAULT_ALGO'"'"', '"'"'bmw512'"'"');
     
     define('"'"'YAAMP_USE_NGINX'"'"', true);
     
@@ -1022,17 +1022,12 @@
     
     // Sample fixed pool fees
     $configFixedPoolFees = array(
-        '"'"'zr5'"'"' => 2.0,
-        '"'"'scrypt'"'"' => 20.0,
-        '"'"'sha256'"'"' => 5.0,
+        '"'"'bmw512'"'"' => 0.5,
      );
      
      // Sample fixed pool fees solo
     $configFixedPoolFeesSolo = array(
-        '"'"'zr5'"'"' => 2.0,
-        '"'"'scrypt'"'"' => 20.0,
-        '"'"'sha256'"'"' => 5.0,
-        
+        '"'"'bmw512'"'"' => 0.75,
     );
     
     // Sample custom stratum ports
